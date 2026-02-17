@@ -1,162 +1,519 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOOM: Beyond Only One Modality</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        
-        header {
-            background-color: #fff;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            line-height: 1.3;
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            color: #555;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .authors {
-            margin: 20px 0;
-            font-size: 1.1em;
-            color: #555;
-        }
-        
-        .author {
-            display: inline;
-        }
-        
-        .author:not(:last-child)::after {
-            content: ", ";
-        }
-        
-        section {
-            background-color: #fff;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        
-        .links {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #ecf0f1;
-            border-radius: 5px;
-        }
-        
-        .links a {
-            display: inline-block;
-            margin: 5px 10px 5px 0;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .links a:hover {
-            background-color: #2980b9;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #7f8c8d;
-            font-size: 0.9em;
-        }
-        
-        .affiliation {
-            margin-top: 10px;
-            font-size: 0.95em;
-            color: #666;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOOM - Beyond Only One Modality</title>
+  <meta name="description" content="LLM Toolkit: flexible benchmarks and tools for evaluating large language models." />
+
+  <!-- Optional font (safe to remove if you want fully offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-    <header>
-        <h1>BOOM</h1>
-        <div class="subtitle">Beyond Only One Modality: KIT's Multimodal Multilingual Lecture Companion</div>
-        
-        <div class="authors">
-            <span class="author">Sai Koneru</span>
-            <span class="author">Fabian Retkowski</span>
-            <span class="author">Christian Huber</span>
-            <span class="author">Lukas Hilgert</span>
-            <span class="author">Seymanur Akti</span>
-            <span class="author">Enes Yavuz Ugan</span>
-            <span class="author">Alexander Waibel</span>
-            <span class="author">Jan Niehues</span>
+  <!-- Top nav -->
+  <header class="site-header">
+    <div class="container nav nav-flex">
+      <div class="brand-left">
+        <img src="img/kit_logo.png" alt="KIT Logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">KIT Research</span>
+          <span class="brand-subtitle">BOOM Project</span>
         </div>
-        
-        <div class="affiliation">
-            Karlsruhe Institute of Technology (KIT)
+      </div>
+      <div class="brand-right">
+        <span class="brand-partner-logos">
+          <img src="img/isl_logo.png" alt="ISL Logo" class="brand-logo partner-logo" />
+          <img src="img/ai4lt_logo.png" alt="AI4LT Logo" class="brand-logo partner-logo" />
+        </span>
+        <a class="btn btn-primary" href="https://arxiv.org/pdf/2512.02817" target="_blank" rel="noopener">Read Paper</a>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" hidden>
+      <div class="container mobile-menu-inner">
+        <a href="#overview">Overview</a>
+        <a class="active" href="#paper">Paper</a>
+        <a href="#resources">Resources</a>
+        <a href="#team">Team</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="crumbs">
+            <a href="https://2026.eacl.org/">EACL 2026</a>
+            <span class="dot" aria-hidden="true">·</span>
+            <span>System demostration</span>
+          </div>
+
+          <img src="img/boom_logo.png" alt="BOOM Logo" class="hero-logo" />
+          <p class="hero-subtitle">
+            Beyond Only One Modality - KIT’s Multimodal Multilingual Lecture Companion
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="https://github.com/ai4lt/pyparrot" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="#quickstart">Instructions</a>
+            <button class="btn btn-ghost" id="citeBtn" type="button">Cite (BibTeX)</button>
+          </div>
+
+          <div class="meta-row">
+            <span class="pill">Python</span>
+            <span class="pill">Multimodal</span>
+            <span class="pill">Multilingual</span>
+            <span class="pill pill-muted">MIT</span>
+          </div>
         </div>
-    </header>
-    
-    <section>
-        <h2>Abstract</h2>
-        <p>
-            BOOM is a multimodal multilingual lecture companion system developed at KIT. 
-            This project goes beyond single modality approaches to provide comprehensive 
-            support for lecture understanding and interaction across multiple languages and modalities.
-        </p>
+
+        <div class="hero-art" aria-label="BOOM illustration">
+          <img src="img/boom_img.png" alt="BOOM illustration" class="hero-figure" />
+        </div>
+      </div>
+
+      <div class="hero-glow" aria-hidden="true"></div>
     </section>
-    
-    <section>
-        <h2>Project Overview</h2>
-        <p>
-            The BOOM system integrates various modalities to enhance the lecture experience, 
-            making educational content more accessible and interactive for students across 
-            different languages and learning preferences.
-        </p>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container two-col">
+        <!-- Left: main cards -->
+        <div class="stack">
+          <article class="card">
+            <header class="card-header">
+              <h2>Key Highlights</h2>
+              <p>What you get out of the box.</p>
+            </header>
+            <ul class="bullets">
+              <li>Multimodal speech translation: Ambinguity resolution with visual context</li>
+              <li>Slide-to-Slide translation: Enable multilingual lecture comprehension</li>
+              <li>Integration into complex lecture environments</li>
+            </ul>
+          </article>
+
+          <article class="card"  id="quickstart">
+            <header class="card-header card-header-row">
+              <div class="card-header-text">
+                <h2>Quickstart Guide</h2>
+                <p>Install using <a href="https://github.com/ai4lt/pyparrot" target="_blank" rel="noreferrer">pyParrot</a> framework →</p>
+              </div>
+              <div class="header-actions">
+                <button class="btn btn-secondary btn-mini" id="quickstartCopyBtn" type="button">Copy all steps</button>
+              </div>
+            </header>
+
+            <div class="quickstart">
+              <pre id="quickstartScript" hidden><code># Download
+git clone https://github.com/ai4lt/pyparrot.git
+
+# Enter the repo
+cd pyparrot
+
+# Initialize and update submodules
+git submodule update --init --recursive
+
+# Install PyParrot
+pip install -e .
+
+# Configure BOOM
+pyparrot configure boom --config example/boom.yaml
+
+# Build docker container
+pyparrot build boom
+
+# Start BOOM
+pyparrot start boom</code></pre>
+              <div class="steps">
+                <ol class="step-list">
+                  <li>
+                    <div class="step-title">Download</div>
+                    <div class="step-body">
+                      <div class="command-row">
+                        <code class="inline-code">git clone https://github.com/ai4lt/pyparrot.git</code>
+                        <button class="copy-btn" type="button" data-copy="git clone https://github.com/ai4lt/pyparrot.git">Copy</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="step-title">Enter the repo</div>
+                    <div class="step-body">
+                      <div class="command-row">
+                        <code class="inline-code">cd pyparrot</code>
+                        <button class="copy-btn" type="button" data-copy="cd pyparrot">Copy</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="step-title">Initialize submodules</div>
+                    <div class="step-body">
+                      <div class="command-row">
+                        <code class="inline-code">git submodule update --init --recursive</code>
+                        <button class="copy-btn" type="button" data-copy="git submodule update --init --recursive">Copy</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="step-title">Install PyParrot</div>
+                    <div class="step-body">
+                      <div class="command-row">
+                        <code class="inline-code">pip install -e .</code>
+                        <button class="copy-btn" type="button" data-copy="pip install -e .">Copy</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="step-title">Configure BOOM</div>
+                    <div class="step-body">
+                      <div class="command-row">
+                        <code class="inline-code">pyparrot configure boom --config example/boom.yaml</code>
+                        <button class="copy-btn" type="button" data-copy="pyparrot configure boom --config example/boom.yaml">Copy</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="step-title">Build docker container</div>
+                    <div class="step-body">
+                      <div class="command-row">
+                        <code class="inline-code">pyparrot build boom</code>
+                        <button class="copy-btn" type="button" data-copy="pyparrot build boom">Copy</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="step-title">Start BOOM</div>
+                    <div class="step-body">
+                      <div class="command-row">
+                        <code class="inline-code">pyparrot start boom</code>
+                        <button class="copy-btn" type="button" data-copy="pyparrot start boom">Copy</button>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+
+                </div>
+          </article>
+
+          <article class="card">
+            <header class="card-header">
+              <h2>Additional Resources</h2>
+              <p>Important components of BOOM.</p>
+            </header>
+
+            <div class="links-grid">
+              <a class="link-card" href="https://github.com/ai4lt/pyparrot" target="_blank" rel="noreferrer">
+                <div class="link-card-title">PyParrot</div>
+                <div class="link-card-sub">Python-based pipeline for multilingual speech processing</div>
+              </a>
+              <a class="link-card" href="https://huggingface.co/skoneru/OmniFusion_v2" target="_blank" rel="noreferrer">
+                <div class="link-card-title">OmniFusion</div>
+                <div class="link-card-sub">OmniFusion: Simultaneous Multilingual Multimodal Translations via Modular Fusion</div>
+              </a>
+              <a class="link-card" href="#" target="_blank" rel="noreferrer">
+                <div class="link-card-title">SlideTranslator</div>
+                <div class="link-card-sub">Slide Translation Pipeline</div>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Right: sidebar -->
+        <aside class="sidebar">
+          <div class="card card-compact">
+            <header class="card-header">
+              <h2>Authors</h2>
+            </header>
+
+            <div class="people" id="authorsList">
+  <div class="person">
+    <span class="avatar" aria-hidden="true">SK</span>
+    <span class="person-meta">
+      <span class="person-name">Sai Koneru</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Sai Koneru"
+      title="Copy email"
+      data-user="sai.koneru" data-domain="kit.edu"></button>
+  </div>
+
+  <div class="person">
+    <span class="avatar" aria-hidden="true">FR</span>
+    <span class="person-meta">
+      <span class="person-name">Fabian Retkowski</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Fabian Retkowski"
+      title="Copy email"
+      data-user="fabian.retkowski" data-domain="kit.edu"></button>
+  </div>
+
+  <div class="person">
+    <span class="avatar" aria-hidden="true">CH</span>
+    <span class="person-meta">
+      <span class="person-name">Christian Huber</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Christian Huber"
+      title="Copy email"
+      data-user="christian.huber" data-domain="kit.edu"></button>
+  </div>
+
+  <div class="person">
+    <span class="avatar" aria-hidden="true">LH</span>
+    <span class="person-meta">
+      <span class="person-name">Lukas Hilgert</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Lukas Hilgert"
+      title="Copy email"
+      data-user="lukas.hilgert" data-domain="kit.edu"></button>
+  </div>
+
+  <div class="person">
+    <span class="avatar" aria-hidden="true">SA</span>
+    <span class="person-meta">
+      <span class="person-name">Seymanur Akti</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Seymanur Akti"
+      title="Copy email"
+      data-user="seymanur.akti" data-domain="kit.edu"></button>
+  </div>
+
+  <div class="person">
+    <span class="avatar" aria-hidden="true">EY</span>
+    <span class="person-meta">
+      <span class="person-name">Enes Yavuz Ugan</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Enes Yavuz Ugan"
+      title="Copy email"
+      data-user="enes.ugan" data-domain="kit.edu"></button>
+  </div>
+
+  <div class="person">
+    <span class="avatar" aria-hidden="true">AW</span>
+    <span class="person-meta">
+      <span class="person-name">Alexander Waibel</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Alexander Waibel"
+      title="Copy email"
+      data-user="alexander.waibel" data-domain="kit.edu"></button>
+  </div>
+
+  <div class="person">
+    <span class="avatar" aria-hidden="true">JN</span>
+    <span class="person-meta">
+      <span class="person-name">Jan Niehues</span>
+      <span class="person-sub">Author</span>
+    </span>
+    <button class="copy-email-icon" type="button"
+      aria-label="Copy email for Jan Niehues"
+      title="Copy email"
+      data-user="jan.niehues" data-domain="kit.edu"></button>
+  </div>
+</div>
+</div>
+
+
+<div class="card card-compact">
+  <header class="card-header">
+    <h2>Acknowledgements</h2>
+    <p>Support behind this project.</p>
+  </header>
+
+  <div class="ack-list">
+    <a class="ack-item ack-link" href="https://dvps.translated.com/" target="_blank" rel="noreferrer">
+      <span class="ack-logo" aria-hidden="true">
+        <img src="img/dvps.png" alt="DVPS logo" />
+      </span>
+
+      <div class="ack-body">
+        <div class="ack-top">
+          <span class="ack-title">EU Project DVPS</span>
+          <span class="ack-tag">Funding</span>
+        </div>
+        <div class="ack-sub">
+          This project is supported by the EU project <strong>DVPS</strong>.
+          <span class="ack-visit">Visit homepage →</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+          <div class="card card-compact callout">
+            <h3>Want to collaborate?</h3>
+            <p>
+              We welcome issues, pull requests, and research collaborations.
+            </p>
+            <a class="btn btn-primary btn-full" href="#" id="contactBtn">Contact us</a>
+          </div>
+        </aside>
+      </div>
     </section>
-    
-    <section class="links">
-        <h2>Resources</h2>
-        <!-- Add links to paper, code, demo, etc. when available -->
-        <p>Resources will be added soon.</p>
-        <!-- Example links (uncomment when available):
-        <a href="#">Paper (PDF)</a>
-        <a href="#">arXiv</a>
-        <a href="#">Code</a>
-        <a href="#">Demo</a>
-        -->
-    </section>
-    
-    <footer>
-        <p>&copy; 2024 Karlsruhe Institute of Technology. All rights reserved.</p>
-    </footer>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">
+        <span class="brand-partner-logos">
+          <img src="img/isl_logo.png" alt="ISL Logo" class="brand-logo partner-logo" />
+          <img src="img/ai4lt_logo.png" alt="AI4LT Logo" class="brand-logo partner-logo" />
+        </span>
+          <span>ISL & AI4LT</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Cite modal -->
+  <dialog class="modal" id="citeModal" aria-labelledby="citeTitle">
+    <div class="modal-inner">
+      <div class="modal-header">
+        <h2 id="citeTitle">Cite LLM Toolkit (BibTeX)</h2>
+        <button class="btn btn-mini" id="closeCite" type="button">Close</button>
+      </div>
+      <pre class="bibtex" id="bibtexBlock"><code>@inproceedings{boom,
+  title     = {BOOM : Beyond Only One Modality KIT’s Multimodal Multilingual Lecture Companion},
+  author    = {Koneru, Sai and Retkowski,Fabian and Huber, Christian and Hilgert, Lukas and Akti, Seymanur and Ugan, Enes Yavuz and Waibel, Alexander and Niehues, Jan},
+ booktitle = "Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations",
+    month = mar,
+    year = "2026",
+    address = "Rabat, Marroco",
+    publisher = "Association for Computational Linguistics",
+}</code></pre>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="copyBibBtn" type="button">Copy BibTeX</button>
+        <a class="btn btn-secondary" href="https://arxiv.org/pdf/2512.02817" target="_blank" rel="noreferrer">Paper</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+
+// Contact button email handler
+const contactBtn = document.getElementById("contactBtn");
+contactBtn?.addEventListener("click", (e) => {
+  e.preventDefault();
+  const user = "sai.koneru";
+  const domain = "kit.edu";
+  window.location.href = `mailto:${user}@${domain}`;
+});
+
+document.addEventListener("click", async (e) => {
+  const btn = e.target.closest(".copy-email-icon");
+  if (!btn) return;
+
+  const user = btn.getAttribute("data-user") || "";
+  const domain = btn.getAttribute("data-domain") || "";
+  if (!user || !domain) return;
+
+  const email = `${user}@${domain}`;
+
+  try {
+    await navigator.clipboard.writeText(email);
+    btn.classList.add("copied");
+    const oldTitle = btn.title;
+    btn.title = "Copied!";
+    setTimeout(() => {
+      btn.classList.remove("copied");
+      btn.title = oldTitle || "Copy email";
+    }, 1200);
+  } catch {
+    // fallback: show prompt if clipboard not available
+    window.prompt("Copy email:", email);
+  }
+});
+
+
+    // Mobile menu
+    const burger = document.querySelector(".nav-burger");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    burger?.addEventListener("click", () => {
+      const open = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!open));
+      mobileMenu.hidden = open;
+    });
+
+    // Copy quickstart commands
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const text = btn.getAttribute("data-copy") || "";
+        try {
+          await navigator.clipboard.writeText(text.trim());
+          const original = btn.textContent;
+          btn.textContent = "Copied";
+          setTimeout(() => (btn.textContent = original || "Copy"), 1200);
+        } catch {
+          btn.textContent = "Failed";
+          setTimeout(() => (btn.textContent = "Copy"), 1200);
+        }
+      });
+    });
+
+    // Copy full quickstart script
+    const quickstartCopyBtn = document.getElementById("quickstartCopyBtn");
+    const quickstartScript = document.getElementById("quickstartScript");
+    quickstartCopyBtn?.addEventListener("click", async () => {
+      const text = quickstartScript?.innerText || "";
+      try {
+        await navigator.clipboard.writeText(text.trim());
+        quickstartCopyBtn.textContent = "Copied";
+        setTimeout(() => (quickstartCopyBtn.textContent = "Copy all steps"), 1200);
+      } catch {
+        quickstartCopyBtn.textContent = "Failed";
+        setTimeout(() => (quickstartCopyBtn.textContent = "Copy all steps"), 1200);
+      }
+    });
+
+    // Cite modal
+    const citeBtn = document.getElementById("citeBtn");
+    const citeModal = document.getElementById("citeModal");
+    const closeCite = document.getElementById("closeCite");
+    const copyBibBtn = document.getElementById("copyBibBtn");
+    const bibtexBlock = document.getElementById("bibtexBlock");
+
+    citeBtn?.addEventListener("click", () => citeModal?.showModal());
+    closeCite?.addEventListener("click", () => citeModal?.close());
+    citeModal?.addEventListener("click", (e) => {
+      const rect = citeModal.getBoundingClientRect();
+      const inDialog =
+        rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX && e.clientX <= rect.left + rect.width;
+      if (!inDialog) citeModal.close();
+    });
+
+    copyBibBtn?.addEventListener("click", async () => {
+      const text = bibtexBlock?.innerText || "";
+      try {
+        await navigator.clipboard.writeText(text.trim());
+        copyBibBtn.textContent = "Copied";
+        setTimeout(() => (copyBibBtn.textContent = "Copy BibTeX"), 1200);
+      } catch {
+        copyBibBtn.textContent = "Failed";
+        setTimeout(() => (copyBibBtn.textContent = "Copy BibTeX"), 1200);
+      }
+    });
+  </script>
 </body>
 </html>
