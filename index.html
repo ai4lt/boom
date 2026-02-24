@@ -48,45 +48,54 @@
 
   <main>
     <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="crumbs">
-            <a href="https://2026.eacl.org/">EACL 2026</a>
-            <span class="dot" aria-hidden="true">·</span>
-            <span>System demostration</span>
-          </div>
+  <section class="hero">
+    <div class="container hero-grid">
 
-          <img src="img/boom_logo.png" alt="BOOM Logo" class="hero-logo" />
-          <p class="hero-subtitle">
-            Beyond Only One Modality - KIT’s Multimodal Multilingual Lecture Companion
-          </p>
-
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="https://github.com/saikoneru/image-translator" target="_blank" rel="noreferrer">
-              Slide Translator
-            </a>
-          
-            <a class="btn btn-primary" href="https://huggingface.co/skoneru/OmniFusion_v2" target="_blank" rel="noreferrer">
-              Multimodal ST
-            </a>
-          
-            <a class="btn btn-primary" href="https://github.com/ai4lt/pyparrot" target="_blank" rel="noreferrer">
-              BOOM LT
-            </a>
-          
-            <a class="btn btn-secondary" href="#quickstart">Instructions</a>
-            <button class="btn btn-ghost" id="citeBtn" type="button">Cite (BibTeX)</button>
-          </div>
-
-          <div class="meta-row">
-            <span class="pill pill-muted">MIT</span>
-          </div>
+      <!-- LEFT -->
+      <div class="hero-copy">
+        <div class="crumbs">
+          <a href="https://2026.eacl.org/">EACL 2026</a>
+          <span class="dot" aria-hidden="true">·</span>
+          <span>System demostration</span>
         </div>
 
+        <img src="img/boom_logo.png" alt="BOOM Logo" class="hero-logo" />
 
-      <div class="hero-glow" aria-hidden="true"></div>
-    </section>
+        <p class="hero-subtitle">
+          Beyond Only One Modality - KIT’s Multimodal Multilingual Lecture Companion
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="https://github.com/ai4lt/pyparrot" target="_blank" rel="noreferrer">
+            Lecture Translator
+          </a>
+          <a class="btn btn-primary" href="https://github.com/saikoneru/image-translator" target="_blank" rel="noreferrer">
+            Slide Translator
+          </a>
+          <a class="btn btn-primary" href="https://huggingface.co/skoneru/OmniFusion_v2" target="_blank" rel="noreferrer">
+            OmniFusion
+          </a>
+          <a class="btn btn-secondary" href="#quickstart">Instructions</a>
+          <button class="btn btn-ghost" id="citeBtn" type="button">Cite (BibTeX)</button>
+        </div>
+
+        <div class="meta-row">
+          <span class="pill pill-muted">MIT</span>
+        </div>
+      </div>
+
+      <!-- RIGHT (TOP RIGHT VIDEO) -->
+      <div class="hero-media">
+        <video class="hero-video" controls playsinline preload="metadata">
+          <source src="video/boom-demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+    </div>
+
+    <div class="hero-glow" aria-hidden="true"></div>
+  </section>
 
     <!-- Main content -->
     <section class="content">
